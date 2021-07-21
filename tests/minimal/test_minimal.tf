@@ -11,36 +11,42 @@ terraform {
   }
 }
 
+resource "aci_rest" "fvTenant" {
+  dn         = "uni/tn-TF"
+  class_name = "fvTenant"
+}
+
 module "main" {
   source = "../.."
 
-  name = "ABC"
+  tenant = aci_rest.fvTenant.content.name
+  name   = "AP1"
 }
 
-data "aci_rest" "fvTenant" {
-  dn = "uni/tn-ABC"
+data "aci_rest" "fvAp" {
+  dn = module.main.dn
 
   depends_on = [module.main]
 }
 
-resource "test_assertions" "fvTenant" {
-  component = "fvTenant"
+resource "test_assertions" "fvAp" {
+  component = "fvAp"
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.fvTenant.content.name
-    want        = "ABC"
+    got         = data.aci_rest.fvAp.content.name
+    want        = "AP1"
   }
 
   equal "nameAlias" {
     description = "nameAlias"
-    got         = data.aci_rest.fvTenant.content.nameAlias
+    got         = data.aci_rest.fvAp.content.nameAlias
     want        = ""
   }
 
   equal "descr" {
     description = "descr"
-    got         = data.aci_rest.fvTenant.content.descr
+    got         = data.aci_rest.fvAp.content.descr
     want        = ""
   }
 }

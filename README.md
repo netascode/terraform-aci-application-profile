@@ -1,21 +1,22 @@
 <!-- BEGIN_TF_DOCS -->
-[![Tests](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-scaffolding/actions/workflows/test.yml)
+[![Tests](https://github.com/netascode/terraform-aci-application-profile/actions/workflows/test.yml/badge.svg)](https://github.com/netascode/terraform-aci-application-profile/actions/workflows/test.yml)
 
-# Terraform ACI Scaffolding Module
+# Terraform ACI Application Profile Module
 
-Description
+Manages ACI Application Profile
 
 Location in GUI:
-`Tenants` » `XXX`
+`Tenants` » `XXX` » `Application Profiles`
 
 ## Examples
 
 ```hcl
-module "aci_scaffolding" {
-  source = "netascode/scaffolding/aci"
+module "aci_application_profile" {
+  source = "netascode/application-profile/aci"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
+  tenant      = "ABC"
+  name        = "AP1"
+  alias       = "AP1-ALIAS"
   description = "My Description"
 }
 
@@ -38,20 +39,21 @@ module "aci_scaffolding" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Tenant name | `string` | n/a | yes |
-| <a name="input_alias"></a> [alias](#input\_alias) | Tenant alias | `string` | `""` | no |
-| <a name="input_description"></a> [description](#input\_description) | Tenant description | `string` | `""` | no |
+| <a name="input_name"></a> [name](#input\_name) | Application profile name | `string` | n/a | yes |
+| <a name="input_tenant"></a> [tenant](#input\_tenant) | Tenant name | `string` | n/a | yes |
+| <a name="input_alias"></a> [alias](#input\_alias) | Application profile alias | `string` | `""` | no |
+| <a name="input_description"></a> [description](#input\_description) | Application profile description | `string` | `""` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `fvTenant` object |
-| <a name="output_name"></a> [name](#output\_name) | Tenant name |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `fvAp` object |
+| <a name="output_name"></a> [name](#output\_name) | Application profile name |
 
 ## Resources
 
 | Name | Type |
 |------|------|
-| [aci_rest.fvTenant](https://registry.terraform.io/providers/netascode/aci/latest/docs/resources/rest) | resource |
+| [aci_rest.fvAp](https://registry.terraform.io/providers/netascode/aci/latest/docs/resources/rest) | resource |
 <!-- END_TF_DOCS -->

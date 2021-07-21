@@ -1,5 +1,15 @@
-variable "name" {
+variable "tenant" {
   description = "Tenant name"
+  type        = string
+
+  validation {
+    condition     = can(regex("^[a-zA-Z0-9_.-]{0,64}$", var.tenant))
+    error_message = "Allowed characters: `a`-`z`, `A`-`Z`, `0`-`9`, `_`, `.`, `-`. Maximum characters: 64."
+  }
+}
+
+variable "name" {
+  description = "Application profile name"
   type        = string
 
   validation {
@@ -9,7 +19,7 @@ variable "name" {
 }
 
 variable "alias" {
-  description = "Tenant alias"
+  description = "Application profile alias"
   type        = string
   default     = ""
 
@@ -20,7 +30,7 @@ variable "alias" {
 }
 
 variable "description" {
-  description = "Tenant description"
+  description = "Application profile description"
   type        = string
   default     = ""
 

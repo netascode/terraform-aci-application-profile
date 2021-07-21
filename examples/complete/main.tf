@@ -1,7 +1,8 @@
-module "aci_scaffolding" {
-  source = "netascode/scaffolding/aci"
+module "aci_application_profile" {
+  source = "netascode/application-profile/aci"
 
-  name        = "ABC"
-  alias       = "ABC-ALIAS"
+  tenant      = "ABC"
+  name        = "AP1"
+  alias       = "AP1-ALIAS"
   description = "My Description"
 }

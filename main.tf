@@ -1,6 +1,6 @@
-resource "aci_rest" "fvTenant" {
-  dn         = "uni/tn-${var.name}"
-  class_name = "fvTenant"
+resource "aci_rest" "fvAp" {
+  dn         = "uni/tn-${var.tenant}/ap-${var.name}"
+  class_name = "fvAp"
   content = {
     name      = var.name
     nameAlias = var.alias
