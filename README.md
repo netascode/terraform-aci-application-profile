@@ -48,8 +48,8 @@ module "aci_application_profile" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `fvAp` object |
-| <a name="output_name"></a> [name](#output\_name) | Application profile name |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `fvAp` object. |
+| <a name="output_name"></a> [name](#output\_name) | Application profile name. |
 
 ## Resources
 
