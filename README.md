@@ -12,7 +12,8 @@ Location in GUI:
 
 ```hcl
 module "aci_application_profile" {
-  source = "netascode/application-profile/aci"
+  source  = "netascode/application-profile/aci"
+  version = ">= 0.0.1"
 
   tenant      = "ABC"
   name        = "AP1"

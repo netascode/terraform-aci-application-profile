@@ -13,7 +13,8 @@ Note that this example will create resources. Resources can be destroyed with `t
 
 ```hcl
 module "aci_application_profile" {
-  source = "netascode/application-profile/aci"
+  source  = "netascode/application-profile/aci"
+  version = ">= 0.0.1"
 
   tenant      = "ABC"
   name        = "AP1"
