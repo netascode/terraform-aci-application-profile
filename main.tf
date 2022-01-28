@@ -1,4 +1,4 @@
-resource "aci_rest" "fvAp" {
+resource "aci_rest_managed" "fvAp" {
   dn         = "uni/tn-${var.tenant}/ap-${var.name}"
   class_name = "fvAp"
   content = {
